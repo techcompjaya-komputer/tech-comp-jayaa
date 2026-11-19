@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech Comp Jaya | Computer & CCTV Store</title>
+<style>
+:root {
+  --navy:#101b30;
+  --blue:#2563eb;
+  --cyan:#38bdf8;
+  --light:#f3f6fb;
+  --white:#fff;
+  --text:#172033;
+  --muted:#64748b;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+html{scroll-behavior:smooth}
+body{background:white;color:var(--text)}
+a{text-decoration:none;color:inherit}
+.container{width:90%;max-width:1200px;margin:auto}
+
+/* NAVBAR */
+header{
+  background:white;padding:17px 5%;
+  display:flex;justify-content:space-between;
+  align-items:center;position:sticky;top:0;
+  z-index:99;box-shadow:0 3px 15px #00000009;
+}
+.logo{font-size:21px;font-weight:900;color:var(--navy)}
+.logo span{color:var(--blue)}
+.logo small{display:block;font-size:10px;letter-spacing:3px;color:var(--muted)}
+nav{display:flex;gap:25px}
+nav a{font-size:13px;font-weight:bold;color:#475569}
+nav a:hover{color:var(--blue)}
+.btn{
+  display:inline-block;background:var(--blue);
+  color:white;padding:13px 21px;border-radius:8px;
+  font-size:13px;font-weight:bold;transition:.2s;
+}
+.btn:hover{background:#1747b5;transform:translateY(-2px)}
+.btn-outline{background:transparent;border:1px solid #ffffff80;color:white}
+
+/* HERO */
+.hero{
+  background:linear-gradient(120deg,#101b30,#172e53);
+  color:white;padding:90px 5%;overflow:hidden;
+}
+.hero-inner{
+  max-width:1200px;margin:auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;gap:50px;
+}
+.hero small{color:var(--cyan);font-weight:bold;letter-spacing:3px}
+.hero h1{font-size:55px;line-height:1.1;margin:20px 0}
+.hero h1 span{color:var(--cyan)}
+.hero p{color:#cbd5e1;line-height:1.8;margin-bottom:27px}
+.hero-image{
+  height:370px;border-radius:20px;overflow:hidden;
+  box-shadow:0 20px 60px #0006;
+}
+.hero-image img{width:100%;height:100%;object-fit:cover}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+
+/* SECTION */
+section{padding:80px 5%}
+.section-title{text-align:center;margin-bottom:40px}
+.section-title small{color:var(--blue);font-weight:bold;letter-spacing:3px}
+.section-title h2{font-size:34px;margin:12px 0}
+.section-title p{color:var(--muted);font-size:14px;line-height:1.7}
+
+/* KATEGORI */
+.categories{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:15px;
+}
+.category{
+  background:white;border:1px solid #e5eaf1;
+  padding:25px 10px;border-radius:13px;text-align:center;
+  transition:.25s;
+}
+.category:hover{transform:translateY(-5px);border-color:var(--blue);box-shadow:0 12px 25px #0000000c}
+.category .icon{font-size:30px;margin-bottom:12px}
+.category h3{font-size:13px}
+
+/* PC RAKITAN */
+.pc-section{background:var(--light)}
+.pc-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.pc-card{
+  min-height:300px;border-radius:18px;overflow:hidden;
+  position:relative;color:white;display:flex;align-items:end;
+  padding:30px;background-size:cover;background-position:center;
+}
+.pc-card:before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(0deg,#071326ed,#07132620);
+}
+.pc-card-content{position:relative;z-index:1}
+.pc-card small{color:var(--cyan);font-weight:bold;letter-spacing:2px}
+.pc-card h2{font-size:35px;margin:12px 0}
+.pc-card p{font-size:13px;color:#dbeafe;line-height:1.6}
+
+/* PRODUK */
+.products{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+}
+.product{
+  background:white;border:1px solid #e5eaf1;
+  border-radius:14px;overflow:hidden;transition:.25s;
+}
+.product:hover{transform:translateY(-5px);box-shadow:0 15px 35px #00000012}
+.product-image{height:190px;background:var(--light);overflow:hidden}
+.product-image img{width:100%;height:100%;object-fit:cover;transition:.3s}
+.product:hover img{transform:scale(1.05)}
+.product-info{padding:18px}
+.product-info small{color:var(--blue);font-weight:bold}
+.product-info h3{font-size:15px;margin:9px 0}
+.product-info p{font-size:12px;color:var(--muted);line-height:1.6}
+.product-info a{
+  display:block;text-align:center;background:var(--navy);
+  color:white;padding:11px;border-radius:7px;
+  margin-top:15px;font-size:12px;font-weight:bold;
+}
+.product-info a:hover{background:var(--blue)}
+
+/* LAYANAN */
+.services{background:var(--light)}
+.service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.service{
+  background:white;padding:25px;border-radius:14px;
+  border:1px solid #e5eaf1;
+}
+.service .icon{font-size:30px}
+.service h3{font-size:16px;margin:15px 0 9px}
+.service p{font-size:13px;color:var(--muted);line-height:1.7}
+
+/* ABOUT */
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;gap:45px;
+}
+.about-image{height:340px;border-radius:18px;overflow:hidden}
+.about-image img{width:100%;height:100%;object-fit:cover}
+.about-text h2{font-size:34px;margin:12px 0}
+.about-text p{font-size:14px;color:var(--muted);line-height:1.9;margin-bottom:15px}
+
+/* CONTACT */
+.contact{
+  background:var(--navy);color:white;
+  padding:55px 7%;border-radius:20px;
+  margin:0 5% 75px;
+  display:flex;align-items:center;
+  justify-content:space-between;gap:25px;
+}
+.contact h2{font-size:29px;margin-bottom:12px}
+.contact p{color:#cbd5e1;font-size:14px;line-height:1.7}
+
+/* FOOTER */
+footer{
+  background:#0b1424;color:white;
+  padding:35px 5%;display:flex;
+  justify-content:space-between;gap:20px;
+  flex-wrap:wrap;font-size:13px;
+}
+footer p{color:#94a3b8;margin-top:8px}
+.wa-float{
+  position:fixed;bottom:22px;right:22px;
+  background:#16a34a;color:white;padding:15px 20px;
+  border-radius:40px;font-weight:bold;font-size:13px;
+  box-shadow:0 8px 20px #0003;z-index:100;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{gap:12px}
+  nav a{font-size:11px}
+  .hero h1{font-size:42px}
+  .categories{grid-template-columns:repeat(3,1fr)}
+  .products{grid-template-columns:repeat(2,1fr)}
+  .service-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:650px){
+  header{flex-wrap:wrap;gap:15px}
+  nav{order:3;width:100%;overflow-x:auto;padding:8px 0}
+  nav a{white-space:nowrap}
+  header>.btn{display:none}
+  .hero{padding:55px 5%}
+  .hero-inner,.about-grid{grid-template-columns:1fr}
+  .hero h1{font-size:39px}
+  .hero-image{height:260px}
+  section{padding:60px 5%}
+  .categories{grid-template-columns:repeat(2,1fr)}
+  .products{grid-template-columns:repeat(2,1fr);gap:10px}
+  .product-image{height:130px}
+  .product-info{padding:12px}
+  .product-info h3{font-size:13px}
+  .pc-grid{grid-template-columns:1fr}
+  .pc-card{min-height:250px}
+  .service-grid{grid-template-columns:1fr 1fr}
+  .contact{flex-direction:column;align-items:flex-start}
+  .section-title h2{font-size:27px}
+  footer{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header>
+  <a href="#home" class="logo">
+    <span>TECH</span> COMP JAYA
+    <small>KOMPUTER & CCTV</small>
+  </a>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#kategori">Kategori</a>
+    <a href="#pc">PC Rakitan</a>
+    <a href="#produk">Produk</a>
+    <a href="#layanan">Layanan</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
+  <a class="btn" href="https://wa.me/6281281230290">WhatsApp</a>
+</header>
+
+<!-- HERO -->
+<div class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <small>WELCOME TO TECH COMP JAYA</small>
+      <h1>Solusi Teknologi <span>Untuk Semua Kebutuhan.</span></h1>
+      <p>
+        Menyediakan berbagai kebutuhan komputer, laptop,
+        sparepart, aksesoris, networking, hingga CCTV.
+        Temukan produk dan layanan terbaik bersama kami.
+      </p>
+      <div class="hero-buttons">
+        <a class="btn" href="#produk">Jelajahi Produk</a>
+        <a class="btn btn-outline" href="#kontak">Hubungi Kami</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1000&q=85" alt="PC Gaming">
+    </div>
+  </div>
+</div>
+
+<!-- KATEGORI -->
+<section id="kategori">
+  <div class="section-title">
+    <small>KATEGORI PRODUK</small>
+    <h2>Temukan Kebutuhan Anda</h2>
+    <p>Berbagai pilihan perangkat komputer dan teknologi.</p>
+  </div>
+  <div class="categories">
+    <div class="category"><div class="icon">🖥️</div><h3>PC Rakitan</h3></div>
+    <div class="category"><div class="icon">💻</div><h3>Laptop</h3></div>
+    <div class="category"><div class="icon">⚙️</div><h3>Sparepart</h3></div>
+    <div class="category"><div class="icon">🎮</div><h3>VGA & Gaming</h3></div>
+    <div class="category"><div class="icon">📹</div><h3>CCTV</h3></div>
+    <div class="category"><div class="icon">🌐</div><h3>Networking</h3></div>
+  </div>
+</section>
+
+<!-- PC RAKITAN -->
+<section class="pc-section" id="pc">
+  <div class="section-title">
+    <small>PC RAKITAN</small>
+    <h2>Pilihan PC Sesuai Kebutuhan</h2>
+    <p>Konsultasikan spesifikasi dan budget PC impian Anda.</p>
+  </div>
+  <div class="pc-grid">
+    <div class="pc-card" style="background-image:url('https://images.unsplash.com/photo-1587831990711-23ca6441447b?auto=format&fit=crop&w=900&q=85')">
+      <div class="pc-card-content">
+        <small>WORK • STUDY • BUSINESS</small>
+        <h2>PC OFFICE</h2>
+        <p>Solusi komputer untuk pekerjaan, sekolah, dan bisnis.</p>
+      </div>
+    </div>
+    <div class="pc-card" style="background-image:url('https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=900&q=85')">
+      <div class="pc-card-content">
+        <small>GAMING • DESIGN • MULTIMEDIA</small>
+        <h2>PC GAMING</h2>
+        <p>Performa PC yang dapat disesuaikan dengan kebutuhan gaming.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUK -->
+<section id="produk">
+  <div class="section-title">
+    <small>OUR PRODUCTS</small>
+    <h2>Produk Tech Comp Jaya</h2>
+    <p>Hubungi admin untuk informasi harga dan stok terbaru.</p>
+  </div>
+  <div class="products">
+
+    <div class="product">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=700&q=85" alt="Laptop">
+      </div>
+      <div class="product-info">
+        <small>LAPTOP</small>
+        <h3>Laptop & Notebook</h3>
+        <p>Berbagai pilihan laptop untuk kerja dan kebutuhan harian.</p>
+        <a href="https://wa.me/6281281230290?text=Halo%20saya%20ingin%20bertanya%20tentang%20Laptop">Tanya Produk ↗</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=700&q=85" alt="Processor">
+      </div>
+      <div class="product-info">
+        <small>PROCESSOR</small>
+        <h3>Processor Intel</h3>
+        <p>Berbagai pilihan processor untuk kebutuhan PC.</p>
+        <a href="https://wa.me/6281281230290?text=Halo%20saya%20ingin%20bertanya%20tentang%20Processor">Tanya Produk ↗</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1562976540-1502c2145186?auto=format&fit=crop&w=700&q=85" alt="RAM">
+      </div>
+      <div class="product-info">
+        <small>MEMORY</small>
+        <h3>RAM PC & Laptop</h3>
+        <p>RAM DDR3 dan DDR4 dengan berbagai kapasitas.</p>
+        <a href="https://wa.me/6281281230290?text=Halo%20saya%20ingin%20bertanya%20tentang%20RAM">Tanya Produk ↗</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1597872200969-2b65dcbcdad6?auto=format&fit=crop&w=700&q=85" alt="SSD">
+      </div>
+      <div class="product-info">
+        <small>STORAGE</small>
+        <h3>SSD & Hard Disk</h3>
+        <p>Penyimpanan untuk PC dan laptop.</p>
+        <a href="https://wa.me/6281281230290?text=Halo%20saya%20ingin%20bertanya%20tentang%20SSD">Tanya Produk ↗</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=700&q=85" alt="VGA">
+      </div>
+      <div class="product-info">
+        <small>GRAPHIC CARD</small>
+        <h3>VGA Card</h3>
+        <p>Kartu grafis untuk gaming dan multimedia.</p>
+        <a href="https://wa.me/6281281230290?text=Halo%20saya%20ingin%20bertanya%20tentang%20VGA">Tanya Produk ↗</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=700&q=85" alt="Keyboard">
+      </div>
+      <div class="product-info">
+        <small>ACCESSORIES</small>
+        <h3>Keyboard & Mouse</h3>
+        <p>Perlengkapan pendukung komputer dan laptop.</p>
+        <a href="https://wa.me/6281281230290?text=Halo%20saya%20ingin%20bertanya%20tentang%20Aksesoris">Tanya Produk ↗</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=700&q=85" alt="CCTV">
+      </div>
+      <div class="product-info">
+        <small>SECURITY</small>
+        <h3>Kamera CCTV</h3>
+        <p>Perangkat keamanan untuk rumah dan tempat usaha.</p>
+        <a href="https://wa.me/6281281230290?text=Halo%20saya%20ingin%20bertanya%20tentang%20CCTV">Tanya Produk ↗</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1647427060118-4911c9821b82?auto=format&fit=crop&w=700&q=85" alt="Networking">
+      </div>
+      <div class="product-info">
+        <small>NETWORKING</small>
+        <h3>Perangkat Jaringan</h3>
+        <p>Router, switch, kabel LAN dan kebutuhan jaringan.</p>
+        <a href="https://wa.me/6281281230290?text=Halo%20saya%20ingin%20bertanya%20tentang%20Networking">Tanya Produk ↗</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- LAYANAN -->
+<section class="services" id="layanan">
+  <div class="section-title">
+    <small>OUR SERVICES</small>
+    <h2>Layanan Kami</h2>
+    <p>Solusi teknologi untuk kebutuhan Anda.</p>
+  </div>
+  <div class="service-grid">
+    <div class="service">
+      <div class="icon">🔧</div>
+      <h3>Servis Komputer</h3>
+      <p>Pengecekan dan perbaikan komputer maupun laptop.</p>
+    </div>
+    <div class="service">
+      <div class="icon">🖥️</div>
+      <h3>Rakit PC</h3>
+      <p>Perakitan komputer sesuai kebutuhan dan budget.</p>
+    </div>
+    <div class="service">
+      <div class="icon">💿</div>
+      <h3>Instalasi Windows</h3>
+      <p>Instalasi sistem operasi dan driver komputer.</p>
+    </div>
+    <div class="service">
+      <div class="icon">📹</div>
+      <h3>Pasang CCTV</h3>
+      <p>Penyediaan perangkat dan instalasi CCTV.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section>
+  <div class="about-grid">
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=900&q=85" alt="Teknologi komputer">
+    </div>
+    <div class="about-text">
+      <small style="color:#2563eb;font-weight:bold;letter-spacing:3px">ABOUT US</small>
+      <h2>Tech Comp Jaya Komputer</h2>
+      <p>
+        Tech Comp Jaya menyediakan berbagai kebutuhan komputer
+        dan IT, mulai dari PC rakitan, laptop, processor,
+        motherboard, RAM, SSD, VGA, aksesoris, perangkat
+        jaringan, hingga perlengkapan CCTV.
+      </p>
+      <p>
+        Kami juga menyediakan jasa servis komputer dan
+        pemasangan CCTV untuk kebutuhan pribadi, kantor,
+        pendidikan, maupun bisnis.
+      </p>
+      <a href="https://wa.me/6281281230290" class="btn">Konsultasi Sekarang</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact" id="kontak">
+  <div>
+    <h2>Butuh Komputer atau CCTV?</h2>
+    <p>Konsultasikan kebutuhan Anda bersama Tech Comp Jaya.<br>
+    Hubungi kami untuk informasi produk dan layanan.</p>
+  </div>
+  <a class="btn" href="https://wa.me/6281281230290">Chat WhatsApp ↗</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <strong>TECH COMP JAYA</strong>
+    <p>Solusi kebutuhan komputer dan CCTV Anda.</p>
+  </div>
+  <div>© 2026 Tech Comp Jaya. All Rights Reserved.</div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/6281281230290">☏ WhatsApp</a>
+
+</body>
+</html>
